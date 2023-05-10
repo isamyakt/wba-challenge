@@ -1,7 +1,7 @@
-import { Connection, Keypair, SystemProgram, PublicKey } from "@solana/web3.js"
-import { Program, Wallet, AnchorProvider, Address } from "@project-serum/anchor"
-import { WbaPrereq, IDL } from "../Typescript/prereq";
-import wallet from "../wba-wallet.json"
+import { Connection, Keypair, SystemProgram, PublicKey } from "@solana/web3.js";
+import { Program, Wallet, AnchorProvider, Address } from "@project-serum/anchor";
+import { WbaPrereq, IDL } from "./wba_prereq";
+import wallet from "../wba-wallet.json";
 
 const keypair = Keypair.fromSecretKey(new Uint8Array(wallet));
 
@@ -31,8 +31,8 @@ const [enrollmentPubkey, _bump] = PublicKey.findProgramAddressSync(enrollmentSee
         ]).rpc();
         console.log(`Success! Check out your TX here: 
         https://explorer.solana.com/tx/${txhash}?cluster=devnet`);
-    } catch(e) {
-        console.error(`Oops, something went wrong: ${e}`)
+    } catch(err) {
+        console.error(`Oops, something went wrong: ${err}`);
     }
 })();
 
